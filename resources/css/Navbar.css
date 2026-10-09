@@ -1,0 +1,122 @@
+.navbar {
+    position: fixed;
+    top: 20px;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    transition: transform var(--transition-normal);
+    will-change: transform;
+}
+.navbar.scrolled {
+    transform: translateY(-10px);
+}
+.navbar-inner {
+    background: rgba(15, 15, 15, 0.35);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--border-subtle);
+    border-radius: 40px;
+    padding: 0 30px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 70px;
+    transform: translateZ(0);
+}
+.navbar-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--gold-primary);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.navbar-logo img {
+    height: 40px;
+    width: auto;
+}
+
+.navbar-logo .logo-icon {
+    font-size: 1.8rem;
+}
+
+.navbar-menu {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    list-style: none;
+}
+
+.navbar-menu a {
+    display: block;
+    padding: 8px 16px;
+    font-family: 'Averia Serif Libre', serif;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    border-radius: 6px;
+    transition: all var(--transition-fast);
+    white-space: nowrap;
+}
+
+.navbar-menu a:hover,
+.navbar-menu a.active {
+    color: var(--gold-primary);
+    background: transparent;
+}
+
+.navbar-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.navbar-actions .btn {
+    font-family: 'Averia Serif Libre', serif;
+    font-size: 1rem;
+}
+
+.mobile-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+}
+
+.mobile-toggle span {
+    width: 24px;
+    height: 2px;
+    background: var(--text-primary);
+    border-radius: 2px;
+    transition: all var(--transition-fast);
+}
+
+@media (max-width: 768px) {
+    .navbar-menu {
+        display: none;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        background: rgba(10, 10, 10, 0.98);
+        padding: 16px;
+        border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .navbar-menu.open {
+        display: flex;
+    }
+
+    .mobile-toggle {
+        display: flex;
+    }
+}
